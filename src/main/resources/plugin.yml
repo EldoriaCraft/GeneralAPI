@@ -1,4 +1,5 @@
 name: GeneralAPI
+author: DerMasterBen007 & typisch_phil
 version: '${version}'
 
 main: de.dermaster.generalAPI.GeneralAPI
