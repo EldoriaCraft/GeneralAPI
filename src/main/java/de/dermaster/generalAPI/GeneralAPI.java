@@ -1,6 +1,8 @@
 package de.dermaster.generalAPI;
 
+import de.dermaster.generalAPI.handler.GUIManager;
 import de.dermaster.generalAPI.handler.InventoryHandler;
+import de.dermaster.generalAPI.service.ServiceProvider;
 import fr.skytasul.glowingentities.GlowingBlocks;
 import fr.skytasul.glowingentities.GlowingEntities;
 import org.bukkit.Bukkit;
@@ -12,6 +14,8 @@ public final class GeneralAPI extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         Bukkit.getPluginManager().registerEvents(new InventoryHandler(), this);
+
+        ServiceProvider.registerService(GUIManager.class, new GUIManager());
     }
 
     @Override
