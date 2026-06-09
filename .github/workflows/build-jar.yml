@@ -2,7 +2,7 @@ name: Build Maven JAR (Java 21)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
 
 jobs:
