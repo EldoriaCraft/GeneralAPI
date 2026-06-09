@@ -10,12 +10,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class GeneralAPI extends JavaPlugin {
 
+    public GeneralAPI() {
+        ServiceProvider.registerService(GUIManager.class, new GUIManager());
+    }
+
     @Override
     public void onEnable() {
         // Plugin startup logic
-        Bukkit.getPluginManager().registerEvents(new InventoryHandler(), this);
-
         ServiceProvider.registerService(GUIManager.class, new GUIManager());
+
+        Bukkit.getPluginManager().registerEvents(new InventoryHandler(), this);
     }
 
     @Override
