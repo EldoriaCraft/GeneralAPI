@@ -23,16 +23,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
-      - name: Create builds folder
-        run: mkdir -p builds
-
-      - name: Move JAR into builds folder
-        run: cp target/*.jar builds/GeneralAPI.jar
-
-      - name: Commit and push JAR
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add builds/app.jar
-          git commit -m "Add build JAR" || echo "No changes to commit"
-          git push
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GeneralAPI-jar
+          path: target/*.jar
